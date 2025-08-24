@@ -1,0 +1,59 @@
+New-Item -ItemType Directory -Force -Path .github\workflows | Out-Null
+
+$yaml = @"
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python \${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: \${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest
+
+      - name: Create rich sample data
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+          rows = [
+              [11111,"Black","Not Hispanic","F","1960-01-15","2025-08-10",1,1,1,1,1,0.90,'{"inc":["EGFR+"],"exc":[]}',"2025-08-10T09:15:00Z","2025-08-10T10:00:00Z"],
+              [22222,"White","Not Hispanic","M","1970-03-02","2025-08-12",1,1,1,1,0,0.80,'{"inc":["ALK+"],"exc":[]}',"2025-08-12T08:40:00Z","2025-08-12T09:10:00Z"],
+              [33333,"White","Hispanic","F","1985-11-23","2025-08-05",1,0,1,0,0,0.70,'{"inc":["ROS1+"],"exc":[]}',"2025-08-05T13:20:00Z",""],
+              [44444,"Black","Not Hispanic","M","1955-06-30","2025-08-03",0,0,1,0,0,0.40,'{"inc":[],"exc":["GFR<60"]}',"2025-08-03T15:00:00Z",""],
+              [55555,"Asian","Not Hispanic","F","1992-09-10","2025-08-04",1,1,1,0,0,0.60,'{"inc":["BRAF+"],"exc":[]}',"2025-08-04T11:05:00Z","2025-08-04T11:45:00Z"],
+          ]
+          df = pd.DataFrame(rows, columns=["MRN","RACE_DESC","ETHNICITY","SEX","BIRTH_DATE","MATCH_DATE","MATCH_FLAG","CONTACTED","IDENTIFIED","CONSENTED","ENROLLED","SCORE","CRITERIA_JSON","IDENTIFIED_AT","CONTACTED_AT"])
+          p = Path("data/input/sample_input_rich.csv"); p.parent.mkdir(parents=True, exist_ok=True); df.to_csv(p, index=False)
+          print("Wrote", p)
+          PY
+
+      - name: CLI smoke test
+        run: |
+          te map --in data/input/sample_input_rich.csv --map data/mappings/mapping_demo.yaml --salt TEST --out out/canonical.csv
+          te validate --in out/canonical.csv
+          te audit --in out/canonical.csv --group race --metric selection --out out/selection_by_race.csv
+          te rr --in out/canonical.csv --group race --metric selection --ref "White" --out out/rr_selection_by_race.csv
+
+      - name: Run tests
+        run: pytest -q
+"@
+
+Set-Content .github\workflows\ci.yml -Value $yaml -Encoding UTF8
