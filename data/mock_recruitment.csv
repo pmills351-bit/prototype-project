@@ -1,0 +1,601 @@
+patient_id,race,ethnicity,sex,age,eligible,selected
+1,Hispanic,Not Hispanic/Latino,M,51,0,0
+2,White,Not Hispanic/Latino,M,62,1,1
+3,Asian,Not Hispanic/Latino,M,30,0,0
+4,Hispanic,Not Hispanic/Latino,M,63,0,0
+5,White,Not Hispanic/Latino,F,84,0,0
+6,Other,Not Hispanic/Latino,F,29,0,1
+7,Hispanic,Not Hispanic/Latino,M,42,0,1
+8,Hispanic,Hispanic/Latino,F,68,0,1
+9,White,Not Hispanic/Latino,F,63,0,0
+10,Black,Not Hispanic/Latino,F,67,1,1
+11,White,Not Hispanic/Latino,M,59,0,0
+12,Asian,Not Hispanic/Latino,M,67,0,0
+13,Black,Not Hispanic/Latino,M,62,1,1
+14,Hispanic,Not Hispanic/Latino,F,25,0,0
+15,White,Not Hispanic/Latino,F,72,1,1
+16,White,Not Hispanic/Latino,M,51,0,1
+17,Black,Not Hispanic/Latino,F,23,1,1
+18,White,Not Hispanic/Latino,M,48,1,1
+19,Hispanic,Hispanic/Latino,M,50,1,1
+20,Black,Hispanic/Latino,F,26,1,1
+21,Hispanic,Not Hispanic/Latino,F,89,1,1
+22,White,Not Hispanic/Latino,F,35,1,1
+23,Other,Not Hispanic/Latino,M,43,1,1
+24,Asian,Not Hispanic/Latino,M,50,1,0
+25,Hispanic,Not Hispanic/Latino,F,78,0,0
+26,White,Not Hispanic/Latino,M,72,0,0
+27,Black,Not Hispanic/Latino,F,73,1,1
+28,White,Hispanic/Latino,F,36,0,0
+29,White,Not Hispanic/Latino,M,79,1,1
+30,Hispanic,Not Hispanic/Latino,F,78,1,1
+31,Hispanic,Not Hispanic/Latino,F,52,1,0
+32,Other,Not Hispanic/Latino,M,58,0,0
+33,White,Hispanic/Latino,F,22,0,1
+34,White,Not Hispanic/Latino,M,73,0,0
+35,Black,Hispanic/Latino,F,87,0,0
+36,White,Hispanic/Latino,F,53,0,0
+37,White,Not Hispanic/Latino,F,57,0,0
+38,Black,Not Hispanic/Latino,F,54,0,0
+39,White,Not Hispanic/Latino,F,25,0,1
+40,Hispanic,Not Hispanic/Latino,F,63,0,0
+41,White,Not Hispanic/Latino,M,70,0,0
+42,Hispanic,Not Hispanic/Latino,F,84,0,0
+43,Hispanic,Hispanic/Latino,F,85,0,0
+44,White,Hispanic/Latino,F,54,0,1
+45,Hispanic,Not Hispanic/Latino,F,87,1,1
+46,Hispanic,Not Hispanic/Latino,F,57,0,0
+47,White,Hispanic/Latino,M,64,1,0
+48,White,Not Hispanic/Latino,F,62,0,0
+49,Hispanic,Not Hispanic/Latino,M,89,0,0
+50,White,Hispanic/Latino,M,71,1,1
+51,White,Not Hispanic/Latino,F,28,0,1
+52,White,Not Hispanic/Latino,F,25,1,1
+53,Hispanic,Not Hispanic/Latino,F,48,0,1
+54,Hispanic,Hispanic/Latino,M,56,0,0
+55,Hispanic,Not Hispanic/Latino,F,66,0,0
+56,Hispanic,Not Hispanic/Latino,M,53,0,0
+57,Black,Not Hispanic/Latino,M,56,1,1
+58,Black,Not Hispanic/Latino,M,84,1,1
+59,White,Not Hispanic/Latino,M,43,0,0
+60,White,Not Hispanic/Latino,M,54,1,1
+61,Hispanic,Not Hispanic/Latino,F,59,0,0
+62,Black,Not Hispanic/Latino,F,52,1,1
+63,Black,Hispanic/Latino,F,87,0,0
+64,Hispanic,Hispanic/Latino,M,87,0,0
+65,Black,Not Hispanic/Latino,M,55,0,0
+66,Black,Not Hispanic/Latino,M,51,1,1
+67,Black,Not Hispanic/Latino,F,61,0,0
+68,White,Not Hispanic/Latino,M,32,0,0
+69,White,Not Hispanic/Latino,F,49,0,1
+70,White,Not Hispanic/Latino,F,35,0,1
+71,White,Hispanic/Latino,M,30,0,0
+72,White,Not Hispanic/Latino,F,26,1,1
+73,Asian,Not Hispanic/Latino,F,61,0,0
+74,White,Not Hispanic/Latino,M,20,1,1
+75,White,Not Hispanic/Latino,F,65,0,0
+76,White,Not Hispanic/Latino,F,50,0,0
+77,White,Not Hispanic/Latino,F,45,0,1
+78,Hispanic,Not Hispanic/Latino,F,73,0,0
+79,Black,Hispanic/Latino,M,57,1,1
+80,Hispanic,Not Hispanic/Latino,M,71,0,0
+81,Hispanic,Hispanic/Latino,F,69,0,0
+82,White,Hispanic/Latino,F,22,0,0
+83,Hispanic,Hispanic/Latino,F,35,0,0
+84,White,Not Hispanic/Latino,M,59,1,1
+85,White,Not Hispanic/Latino,M,88,0,0
+86,White,Not Hispanic/Latino,M,30,1,1
+87,Hispanic,Not Hispanic/Latino,F,27,0,0
+88,Black,Not Hispanic/Latino,F,85,0,0
+89,White,Not Hispanic/Latino,F,87,1,1
+90,Black,Not Hispanic/Latino,M,31,0,0
+91,White,Not Hispanic/Latino,F,48,1,1
+92,Hispanic,Not Hispanic/Latino,M,63,0,0
+93,White,Hispanic/Latino,M,33,0,0
+94,White,Not Hispanic/Latino,F,42,1,1
+95,White,Not Hispanic/Latino,F,47,0,0
+96,Black,Not Hispanic/Latino,F,64,0,0
+97,White,Not Hispanic/Latino,F,41,1,1
+98,White,Not Hispanic/Latino,F,48,0,1
+99,White,Not Hispanic/Latino,M,40,1,1
+100,Other,Not Hispanic/Latino,F,73,0,0
+101,Asian,Hispanic/Latino,F,30,1,1
+102,Hispanic,Not Hispanic/Latino,M,36,0,0
+103,White,Hispanic/Latino,M,37,0,0
+104,Other,Not Hispanic/Latino,F,83,1,0
+105,Hispanic,Not Hispanic/Latino,M,86,1,0
+106,Hispanic,Not Hispanic/Latino,M,55,0,0
+107,White,Not Hispanic/Latino,M,30,0,0
+108,White,Not Hispanic/Latino,M,72,0,1
+109,White,Not Hispanic/Latino,F,54,1,1
+110,Asian,Not Hispanic/Latino,M,79,1,1
+111,Black,Not Hispanic/Latino,F,45,0,0
+112,White,Not Hispanic/Latino,M,89,0,1
+113,White,Not Hispanic/Latino,M,76,0,0
+114,Black,Not Hispanic/Latino,F,35,0,0
+115,White,Not Hispanic/Latino,F,70,0,0
+116,Asian,Hispanic/Latino,M,40,1,1
+117,Hispanic,Not Hispanic/Latino,M,44,1,1
+118,Hispanic,Hispanic/Latino,F,37,0,0
+119,White,Not Hispanic/Latino,M,67,0,1
+120,Black,Not Hispanic/Latino,M,38,0,0
+121,Black,Not Hispanic/Latino,F,64,0,0
+122,Black,Not Hispanic/Latino,F,60,0,0
+123,White,Hispanic/Latino,F,72,0,0
+124,White,Not Hispanic/Latino,M,89,1,1
+125,White,Hispanic/Latino,F,20,0,1
+126,Black,Hispanic/Latino,M,89,1,1
+127,White,Hispanic/Latino,F,27,0,1
+128,White,Hispanic/Latino,M,56,1,0
+129,White,Not Hispanic/Latino,F,43,1,1
+130,Black,Not Hispanic/Latino,F,64,0,0
+131,White,Not Hispanic/Latino,M,70,0,0
+132,Asian,Hispanic/Latino,F,80,0,0
+133,Black,Hispanic/Latino,M,48,1,0
+134,White,Not Hispanic/Latino,M,85,0,1
+135,Black,Hispanic/Latino,M,42,0,1
+136,White,Not Hispanic/Latino,M,34,0,0
+137,Other,Hispanic/Latino,F,46,1,1
+138,Black,Not Hispanic/Latino,M,56,1,1
+139,Hispanic,Not Hispanic/Latino,M,66,0,1
+140,White,Not Hispanic/Latino,F,78,0,0
+141,Black,Hispanic/Latino,F,35,1,1
+142,Black,Hispanic/Latino,M,41,1,1
+143,Asian,Not Hispanic/Latino,F,85,0,1
+144,Black,Hispanic/Latino,M,50,1,1
+145,Black,Not Hispanic/Latino,M,36,0,0
+146,White,Not Hispanic/Latino,M,88,1,1
+147,White,Not Hispanic/Latino,F,51,1,1
+148,Black,Not Hispanic/Latino,F,88,0,0
+149,White,Not Hispanic/Latino,F,84,0,1
+150,White,Not Hispanic/Latino,F,83,0,0
+151,Hispanic,Not Hispanic/Latino,M,60,0,0
+152,Asian,Not Hispanic/Latino,M,75,0,0
+153,White,Hispanic/Latino,F,87,0,1
+154,Black,Not Hispanic/Latino,F,38,0,1
+155,White,Not Hispanic/Latino,M,22,0,0
+156,Hispanic,Hispanic/Latino,F,42,0,0
+157,White,Not Hispanic/Latino,M,64,0,0
+158,Hispanic,Not Hispanic/Latino,F,58,0,0
+159,Hispanic,Hispanic/Latino,M,25,1,1
+160,Hispanic,Not Hispanic/Latino,F,59,0,0
+161,White,Not Hispanic/Latino,M,32,0,0
+162,Asian,Hispanic/Latino,F,55,0,0
+163,White,Hispanic/Latino,M,60,0,1
+164,White,Hispanic/Latino,F,64,1,1
+165,Black,Not Hispanic/Latino,F,48,0,0
+166,White,Hispanic/Latino,M,48,1,0
+167,Hispanic,Hispanic/Latino,F,67,0,0
+168,Hispanic,Hispanic/Latino,F,72,0,0
+169,White,Hispanic/Latino,F,76,0,1
+170,Other,Not Hispanic/Latino,F,43,0,0
+171,White,Hispanic/Latino,F,49,0,0
+172,Black,Not Hispanic/Latino,M,43,0,0
+173,White,Not Hispanic/Latino,F,56,0,0
+174,Asian,Not Hispanic/Latino,M,28,0,0
+175,White,Hispanic/Latino,M,50,0,0
+176,White,Not Hispanic/Latino,F,33,1,1
+177,White,Not Hispanic/Latino,M,57,0,0
+178,Other,Hispanic/Latino,M,79,1,0
+179,Asian,Not Hispanic/Latino,M,88,0,0
+180,Hispanic,Not Hispanic/Latino,F,51,0,0
+181,Asian,Not Hispanic/Latino,F,23,0,0
+182,Asian,Not Hispanic/Latino,F,35,1,0
+183,Black,Not Hispanic/Latino,M,27,0,0
+184,White,Not Hispanic/Latino,M,73,0,0
+185,Hispanic,Not Hispanic/Latino,M,88,1,1
+186,Hispanic,Not Hispanic/Latino,F,58,1,0
+187,White,Not Hispanic/Latino,M,32,0,0
+188,White,Not Hispanic/Latino,F,21,0,0
+189,Hispanic,Not Hispanic/Latino,M,88,1,1
+190,White,Not Hispanic/Latino,F,42,0,0
+191,Asian,Hispanic/Latino,M,27,0,0
+192,White,Not Hispanic/Latino,M,32,0,1
+193,White,Not Hispanic/Latino,F,37,0,0
+194,Hispanic,Hispanic/Latino,F,65,1,1
+195,White,Hispanic/Latino,M,82,1,1
+196,White,Not Hispanic/Latino,F,39,1,0
+197,Black,Hispanic/Latino,M,68,0,0
+198,Asian,Hispanic/Latino,M,24,1,0
+199,White,Not Hispanic/Latino,M,20,1,1
+200,White,Not Hispanic/Latino,F,23,0,0
+201,Hispanic,Not Hispanic/Latino,F,84,0,0
+202,Other,Not Hispanic/Latino,F,60,0,0
+203,Black,Not Hispanic/Latino,M,76,0,1
+204,White,Not Hispanic/Latino,F,21,0,0
+205,White,Hispanic/Latino,F,21,0,0
+206,White,Hispanic/Latino,F,79,1,1
+207,White,Not Hispanic/Latino,M,27,0,0
+208,Hispanic,Hispanic/Latino,F,30,0,0
+209,White,Not Hispanic/Latino,M,56,0,0
+210,Black,Not Hispanic/Latino,M,62,0,0
+211,Hispanic,Hispanic/Latino,M,36,0,0
+212,Black,Hispanic/Latino,M,51,1,0
+213,White,Not Hispanic/Latino,M,67,0,0
+214,Hispanic,Not Hispanic/Latino,M,50,1,0
+215,Hispanic,Hispanic/Latino,F,46,0,0
+216,Hispanic,Not Hispanic/Latino,M,25,0,0
+217,White,Not Hispanic/Latino,M,51,1,1
+218,White,Not Hispanic/Latino,M,76,0,1
+219,Asian,Not Hispanic/Latino,M,63,0,0
+220,White,Not Hispanic/Latino,M,82,0,0
+221,White,Hispanic/Latino,M,28,1,1
+222,Black,Not Hispanic/Latino,F,20,1,0
+223,Hispanic,Not Hispanic/Latino,F,58,0,0
+224,Other,Not Hispanic/Latino,F,32,1,1
+225,White,Not Hispanic/Latino,F,61,1,1
+226,Asian,Hispanic/Latino,F,83,0,0
+227,White,Not Hispanic/Latino,F,43,1,1
+228,Black,Hispanic/Latino,F,58,1,1
+229,Black,Not Hispanic/Latino,M,67,0,0
+230,White,Not Hispanic/Latino,F,30,0,0
+231,White,Not Hispanic/Latino,M,82,0,1
+232,White,Not Hispanic/Latino,M,34,0,1
+233,Other,Not Hispanic/Latino,F,76,0,0
+234,Black,Not Hispanic/Latino,F,66,1,1
+235,Asian,Not Hispanic/Latino,F,29,0,0
+236,Hispanic,Not Hispanic/Latino,M,70,0,0
+237,Black,Not Hispanic/Latino,F,33,0,0
+238,Hispanic,Not Hispanic/Latino,F,61,0,0
+239,White,Not Hispanic/Latino,M,87,0,0
+240,White,Not Hispanic/Latino,M,86,1,1
+241,Hispanic,Hispanic/Latino,F,80,1,1
+242,Hispanic,Not Hispanic/Latino,F,54,1,1
+243,White,Not Hispanic/Latino,F,59,0,0
+244,Black,Not Hispanic/Latino,F,41,1,1
+245,Black,Hispanic/Latino,F,84,0,0
+246,Asian,Not Hispanic/Latino,M,53,1,1
+247,Black,Not Hispanic/Latino,M,74,0,0
+248,White,Not Hispanic/Latino,M,45,0,0
+249,White,Hispanic/Latino,M,71,1,1
+250,White,Not Hispanic/Latino,F,35,1,1
+251,Hispanic,Hispanic/Latino,M,71,1,0
+252,Asian,Hispanic/Latino,M,23,0,0
+253,Black,Not Hispanic/Latino,M,27,1,1
+254,White,Not Hispanic/Latino,M,44,0,0
+255,White,Hispanic/Latino,F,53,0,0
+256,Hispanic,Not Hispanic/Latino,F,69,0,0
+257,Hispanic,Not Hispanic/Latino,F,45,0,0
+258,White,Not Hispanic/Latino,F,21,0,0
+259,White,Not Hispanic/Latino,M,42,0,0
+260,Black,Not Hispanic/Latino,F,50,1,1
+261,White,Not Hispanic/Latino,M,58,0,0
+262,Hispanic,Not Hispanic/Latino,M,65,1,1
+263,White,Not Hispanic/Latino,F,37,0,0
+264,White,Not Hispanic/Latino,F,62,0,1
+265,Asian,Hispanic/Latino,M,64,0,0
+266,White,Not Hispanic/Latino,M,74,0,0
+267,White,Not Hispanic/Latino,F,56,1,0
+268,White,Not Hispanic/Latino,F,76,0,0
+269,White,Hispanic/Latino,M,35,0,0
+270,White,Hispanic/Latino,F,69,0,0
+271,White,Not Hispanic/Latino,M,23,0,0
+272,White,Hispanic/Latino,F,27,0,1
+273,White,Not Hispanic/Latino,F,80,1,1
+274,Black,Not Hispanic/Latino,F,53,1,1
+275,Hispanic,Not Hispanic/Latino,F,63,0,0
+276,White,Not Hispanic/Latino,F,62,1,1
+277,White,Not Hispanic/Latino,F,68,0,0
+278,Black,Not Hispanic/Latino,M,37,0,0
+279,Asian,Not Hispanic/Latino,F,32,1,1
+280,Asian,Not Hispanic/Latino,F,22,0,1
+281,White,Not Hispanic/Latino,F,80,0,0
+282,White,Not Hispanic/Latino,F,35,1,0
+283,White,Not Hispanic/Latino,M,60,1,1
+284,White,Not Hispanic/Latino,F,51,1,1
+285,Black,Hispanic/Latino,M,31,1,0
+286,White,Not Hispanic/Latino,F,48,0,0
+287,White,Not Hispanic/Latino,M,25,0,0
+288,White,Hispanic/Latino,F,32,1,1
+289,Black,Hispanic/Latino,M,29,0,0
+290,White,Not Hispanic/Latino,F,77,1,1
+291,Hispanic,Not Hispanic/Latino,F,59,0,0
+292,White,Not Hispanic/Latino,M,84,0,1
+293,Asian,Hispanic/Latino,M,50,0,0
+294,White,Hispanic/Latino,M,34,1,1
+295,Hispanic,Not Hispanic/Latino,F,62,0,1
+296,Asian,Not Hispanic/Latino,M,85,0,0
+297,Other,Not Hispanic/Latino,M,57,1,0
+298,Hispanic,Hispanic/Latino,M,21,1,0
+299,Hispanic,Hispanic/Latino,F,41,1,1
+300,Black,Not Hispanic/Latino,M,84,0,0
+301,Hispanic,Not Hispanic/Latino,M,56,0,1
+302,White,Not Hispanic/Latino,M,86,0,1
+303,Black,Hispanic/Latino,F,55,0,0
+304,Black,Not Hispanic/Latino,F,20,0,1
+305,Asian,Not Hispanic/Latino,M,81,0,0
+306,Black,Not Hispanic/Latino,F,73,1,1
+307,White,Not Hispanic/Latino,M,70,0,1
+308,Black,Hispanic/Latino,F,87,1,1
+309,White,Not Hispanic/Latino,F,33,0,0
+310,White,Not Hispanic/Latino,M,83,0,1
+311,Black,Not Hispanic/Latino,F,36,0,0
+312,White,Not Hispanic/Latino,F,87,0,1
+313,White,Not Hispanic/Latino,M,33,0,0
+314,White,Not Hispanic/Latino,M,58,0,0
+315,White,Not Hispanic/Latino,M,75,0,0
+316,White,Not Hispanic/Latino,F,25,1,1
+317,White,Hispanic/Latino,F,24,1,1
+318,Hispanic,Hispanic/Latino,M,79,0,0
+319,White,Not Hispanic/Latino,F,24,1,1
+320,Asian,Not Hispanic/Latino,F,62,0,0
+321,Asian,Hispanic/Latino,F,85,1,1
+322,Black,Not Hispanic/Latino,M,63,1,1
+323,White,Not Hispanic/Latino,M,53,0,0
+324,Black,Not Hispanic/Latino,M,49,1,0
+325,Hispanic,Hispanic/Latino,M,64,0,0
+326,Hispanic,Not Hispanic/Latino,F,60,0,0
+327,Hispanic,Hispanic/Latino,F,55,1,0
+328,Black,Not Hispanic/Latino,F,30,0,0
+329,Black,Not Hispanic/Latino,F,66,0,0
+330,White,Not Hispanic/Latino,F,71,0,1
+331,Hispanic,Not Hispanic/Latino,F,69,0,1
+332,White,Not Hispanic/Latino,F,25,0,0
+333,Hispanic,Not Hispanic/Latino,M,69,0,0
+334,Asian,Not Hispanic/Latino,M,71,0,0
+335,White,Not Hispanic/Latino,F,32,0,0
+336,Black,Hispanic/Latino,F,79,0,1
+337,White,Not Hispanic/Latino,M,56,0,0
+338,Hispanic,Hispanic/Latino,M,53,0,0
+339,White,Not Hispanic/Latino,M,70,0,0
+340,Asian,Hispanic/Latino,F,55,0,0
+341,White,Not Hispanic/Latino,M,58,0,0
+342,Other,Not Hispanic/Latino,F,41,1,1
+343,Hispanic,Hispanic/Latino,F,84,1,1
+344,Black,Not Hispanic/Latino,F,87,0,0
+345,Hispanic,Not Hispanic/Latino,F,29,0,1
+346,Hispanic,Hispanic/Latino,F,71,0,0
+347,Asian,Not Hispanic/Latino,F,21,1,1
+348,White,Not Hispanic/Latino,M,45,0,0
+349,Black,Not Hispanic/Latino,F,87,0,1
+350,White,Not Hispanic/Latino,F,32,0,0
+351,Black,Not Hispanic/Latino,F,46,0,1
+352,White,Hispanic/Latino,F,35,0,0
+353,Black,Hispanic/Latino,F,70,0,0
+354,Black,Hispanic/Latino,F,52,0,1
+355,Black,Not Hispanic/Latino,F,61,0,0
+356,Black,Not Hispanic/Latino,M,85,0,1
+357,Hispanic,Not Hispanic/Latino,M,56,0,1
+358,Hispanic,Not Hispanic/Latino,F,71,1,1
+359,Black,Not Hispanic/Latino,M,26,1,0
+360,Black,Not Hispanic/Latino,M,35,0,1
+361,Asian,Not Hispanic/Latino,M,86,0,1
+362,White,Not Hispanic/Latino,M,80,0,0
+363,White,Hispanic/Latino,M,65,1,0
+364,White,Hispanic/Latino,M,46,0,0
+365,Hispanic,Not Hispanic/Latino,M,33,1,1
+366,White,Not Hispanic/Latino,F,79,0,0
+367,Hispanic,Not Hispanic/Latino,F,74,0,0
+368,Hispanic,Hispanic/Latino,F,36,0,0
+369,White,Not Hispanic/Latino,F,61,0,0
+370,Asian,Hispanic/Latino,F,63,0,0
+371,Hispanic,Not Hispanic/Latino,F,53,0,0
+372,White,Hispanic/Latino,M,84,0,0
+373,White,Hispanic/Latino,M,28,0,1
+374,White,Not Hispanic/Latino,M,38,0,0
+375,White,Not Hispanic/Latino,F,26,0,0
+376,White,Not Hispanic/Latino,F,68,1,1
+377,Asian,Not Hispanic/Latino,M,65,1,1
+378,White,Not Hispanic/Latino,M,89,1,1
+379,White,Not Hispanic/Latino,M,57,0,1
+380,Hispanic,Hispanic/Latino,M,30,0,1
+381,Black,Not Hispanic/Latino,M,51,0,0
+382,Asian,Not Hispanic/Latino,F,26,1,1
+383,Hispanic,Not Hispanic/Latino,F,66,1,1
+384,Black,Not Hispanic/Latino,F,67,0,0
+385,White,Hispanic/Latino,M,80,0,1
+386,Other,Not Hispanic/Latino,M,43,0,1
+387,Hispanic,Not Hispanic/Latino,F,41,0,0
+388,Other,Hispanic/Latino,M,24,0,0
+389,White,Not Hispanic/Latino,F,49,1,1
+390,Asian,Not Hispanic/Latino,F,53,0,0
+391,Black,Not Hispanic/Latino,F,72,0,1
+392,White,Not Hispanic/Latino,F,72,0,0
+393,Black,Not Hispanic/Latino,M,29,1,1
+394,Hispanic,Hispanic/Latino,F,39,0,0
+395,White,Not Hispanic/Latino,M,55,0,0
+396,Black,Not Hispanic/Latino,M,43,0,0
+397,Hispanic,Not Hispanic/Latino,F,21,0,0
+398,White,Hispanic/Latino,F,79,1,1
+399,Black,Not Hispanic/Latino,M,71,0,1
+400,White,Not Hispanic/Latino,F,56,0,0
+401,White,Hispanic/Latino,M,42,1,1
+402,Asian,Not Hispanic/Latino,F,78,0,0
+403,Hispanic,Hispanic/Latino,M,22,0,0
+404,White,Hispanic/Latino,M,51,0,0
+405,Other,Not Hispanic/Latino,F,76,1,1
+406,Asian,Not Hispanic/Latino,F,86,1,1
+407,White,Not Hispanic/Latino,M,37,0,0
+408,Hispanic,Not Hispanic/Latino,F,65,0,0
+409,White,Not Hispanic/Latino,F,33,0,0
+410,Other,Not Hispanic/Latino,F,28,0,0
+411,Hispanic,Not Hispanic/Latino,F,44,0,0
+412,Hispanic,Not Hispanic/Latino,M,81,0,0
+413,White,Not Hispanic/Latino,M,68,1,0
+414,Asian,Not Hispanic/Latino,F,54,1,1
+415,White,Not Hispanic/Latino,M,39,1,0
+416,White,Hispanic/Latino,F,29,0,0
+417,White,Not Hispanic/Latino,F,38,1,0
+418,Hispanic,Not Hispanic/Latino,M,30,1,1
+419,White,Hispanic/Latino,M,33,0,0
+420,Asian,Not Hispanic/Latino,F,68,1,1
+421,Hispanic,Not Hispanic/Latino,F,29,1,0
+422,White,Not Hispanic/Latino,F,23,0,0
+423,White,Not Hispanic/Latino,M,57,0,0
+424,White,Not Hispanic/Latino,F,40,0,0
+425,Black,Not Hispanic/Latino,F,51,0,0
+426,Hispanic,Not Hispanic/Latino,M,29,1,0
+427,White,Not Hispanic/Latino,F,34,0,0
+428,Hispanic,Not Hispanic/Latino,F,50,0,0
+429,White,Not Hispanic/Latino,F,68,0,0
+430,Hispanic,Not Hispanic/Latino,F,49,0,0
+431,Asian,Not Hispanic/Latino,F,57,0,0
+432,Hispanic,Not Hispanic/Latino,M,56,0,0
+433,Hispanic,Not Hispanic/Latino,M,38,0,0
+434,Hispanic,Not Hispanic/Latino,M,39,1,1
+435,White,Not Hispanic/Latino,M,49,0,1
+436,White,Not Hispanic/Latino,F,22,0,0
+437,White,Not Hispanic/Latino,F,67,0,1
+438,Black,Not Hispanic/Latino,M,63,0,0
+439,Hispanic,Not Hispanic/Latino,F,41,1,1
+440,Black,Hispanic/Latino,M,46,0,0
+441,Asian,Hispanic/Latino,M,43,0,0
+442,White,Not Hispanic/Latino,F,65,0,0
+443,Hispanic,Not Hispanic/Latino,F,73,0,0
+444,White,Not Hispanic/Latino,F,27,1,1
+445,White,Hispanic/Latino,F,48,0,1
+446,Hispanic,Not Hispanic/Latino,F,20,0,0
+447,Other,Hispanic/Latino,F,51,0,1
+448,Black,Not Hispanic/Latino,M,37,1,0
+449,White,Not Hispanic/Latino,M,43,0,1
+450,Black,Hispanic/Latino,M,51,1,1
+451,White,Not Hispanic/Latino,F,42,0,0
+452,Asian,Hispanic/Latino,F,47,0,0
+453,Hispanic,Not Hispanic/Latino,F,73,0,0
+454,White,Hispanic/Latino,F,76,0,0
+455,White,Not Hispanic/Latino,M,20,0,0
+456,White,Not Hispanic/Latino,F,46,0,0
+457,Other,Not Hispanic/Latino,F,79,1,1
+458,Black,Hispanic/Latino,M,57,1,1
+459,Hispanic,Not Hispanic/Latino,F,34,0,0
+460,Black,Not Hispanic/Latino,F,61,1,1
+461,Black,Not Hispanic/Latino,F,30,0,0
+462,White,Not Hispanic/Latino,M,21,0,1
+463,Asian,Not Hispanic/Latino,M,64,0,0
+464,White,Not Hispanic/Latino,F,56,0,1
+465,Black,Not Hispanic/Latino,M,72,0,1
+466,Hispanic,Not Hispanic/Latino,M,44,0,0
+467,Black,Not Hispanic/Latino,M,79,1,1
+468,Asian,Not Hispanic/Latino,F,49,1,1
+469,White,Hispanic/Latino,F,71,0,0
+470,Black,Not Hispanic/Latino,M,27,0,0
+471,White,Not Hispanic/Latino,F,26,1,1
+472,Black,Not Hispanic/Latino,M,74,0,0
+473,White,Not Hispanic/Latino,M,78,0,0
+474,White,Not Hispanic/Latino,F,85,0,0
+475,White,Not Hispanic/Latino,M,42,0,0
+476,White,Not Hispanic/Latino,M,21,0,0
+477,White,Not Hispanic/Latino,M,88,0,0
+478,Black,Not Hispanic/Latino,F,62,0,1
+479,Black,Not Hispanic/Latino,M,37,1,0
+480,White,Not Hispanic/Latino,M,73,0,0
+481,White,Hispanic/Latino,M,83,1,1
+482,White,Not Hispanic/Latino,M,39,0,0
+483,Black,Not Hispanic/Latino,M,73,1,0
+484,White,Not Hispanic/Latino,F,75,1,1
+485,White,Not Hispanic/Latino,F,55,1,1
+486,White,Not Hispanic/Latino,F,64,0,0
+487,Black,Not Hispanic/Latino,F,38,0,0
+488,White,Not Hispanic/Latino,F,85,1,1
+489,Black,Not Hispanic/Latino,M,88,0,0
+490,Black,Not Hispanic/Latino,F,88,0,0
+491,Hispanic,Hispanic/Latino,M,71,0,0
+492,Black,Not Hispanic/Latino,M,22,0,0
+493,Hispanic,Not Hispanic/Latino,F,45,0,1
+494,White,Not Hispanic/Latino,M,51,1,1
+495,Hispanic,Not Hispanic/Latino,M,87,1,1
+496,Black,Not Hispanic/Latino,M,58,0,0
+497,White,Hispanic/Latino,F,57,1,1
+498,Black,Not Hispanic/Latino,M,30,0,0
+499,White,Not Hispanic/Latino,M,75,0,0
+500,Black,Hispanic/Latino,M,43,0,1
+501,Hispanic,Hispanic/Latino,M,26,0,1
+502,Asian,Not Hispanic/Latino,M,89,0,1
+503,Asian,Not Hispanic/Latino,F,33,0,1
+504,Black,Not Hispanic/Latino,M,21,0,1
+505,Black,Hispanic/Latino,F,25,1,1
+506,Hispanic,Not Hispanic/Latino,M,51,1,1
+507,White,Hispanic/Latino,F,27,0,0
+508,Hispanic,Not Hispanic/Latino,F,78,1,0
+509,Black,Not Hispanic/Latino,M,55,0,0
+510,White,Hispanic/Latino,F,42,0,0
+511,White,Hispanic/Latino,M,20,0,0
+512,Hispanic,Not Hispanic/Latino,F,53,0,1
+513,White,Not Hispanic/Latino,M,30,0,0
+514,White,Not Hispanic/Latino,M,88,0,1
+515,White,Not Hispanic/Latino,F,40,1,1
+516,White,Hispanic/Latino,M,53,0,0
+517,White,Hispanic/Latino,F,21,1,1
+518,Hispanic,Not Hispanic/Latino,M,29,0,0
+519,White,Not Hispanic/Latino,M,34,0,0
+520,Hispanic,Not Hispanic/Latino,M,23,0,0
+521,Asian,Not Hispanic/Latino,F,70,0,0
+522,White,Hispanic/Latino,F,86,0,0
+523,White,Not Hispanic/Latino,M,88,1,1
+524,Black,Hispanic/Latino,M,38,0,1
+525,White,Not Hispanic/Latino,F,75,0,0
+526,White,Not Hispanic/Latino,F,55,0,0
+527,Other,Not Hispanic/Latino,F,23,0,1
+528,Other,Not Hispanic/Latino,M,26,0,0
+529,Hispanic,Not Hispanic/Latino,F,58,1,0
+530,White,Not Hispanic/Latino,F,49,1,1
+531,Hispanic,Not Hispanic/Latino,M,20,1,1
+532,Hispanic,Not Hispanic/Latino,F,85,0,0
+533,White,Hispanic/Latino,M,71,0,0
+534,Black,Not Hispanic/Latino,F,55,0,0
+535,White,Not Hispanic/Latino,M,89,0,0
+536,White,Not Hispanic/Latino,M,87,0,0
+537,Black,Not Hispanic/Latino,M,88,0,0
+538,White,Not Hispanic/Latino,F,38,1,1
+539,White,Hispanic/Latino,M,81,0,0
+540,Hispanic,Not Hispanic/Latino,M,55,1,1
+541,Other,Not Hispanic/Latino,F,70,0,0
+542,Black,Not Hispanic/Latino,F,80,0,0
+543,Hispanic,Not Hispanic/Latino,F,31,0,0
+544,Other,Not Hispanic/Latino,M,51,0,0
+545,White,Not Hispanic/Latino,M,29,0,0
+546,White,Not Hispanic/Latino,M,39,0,0
+547,White,Not Hispanic/Latino,M,48,0,0
+548,White,Not Hispanic/Latino,M,79,0,0
+549,Hispanic,Not Hispanic/Latino,F,80,0,1
+550,White,Not Hispanic/Latino,F,47,0,0
+551,Black,Hispanic/Latino,M,43,0,0
+552,White,Not Hispanic/Latino,F,57,0,0
+553,White,Hispanic/Latino,M,83,0,0
+554,Asian,Hispanic/Latino,M,88,0,0
+555,White,Not Hispanic/Latino,F,35,0,0
+556,White,Hispanic/Latino,M,33,0,1
+557,White,Hispanic/Latino,F,69,0,0
+558,Black,Hispanic/Latino,M,41,0,0
+559,Black,Not Hispanic/Latino,M,33,1,1
+560,Black,Not Hispanic/Latino,M,22,1,1
+561,White,Hispanic/Latino,F,48,0,0
+562,White,Not Hispanic/Latino,F,47,0,1
+563,Hispanic,Not Hispanic/Latino,F,59,0,0
+564,Black,Hispanic/Latino,F,34,1,1
+565,Black,Hispanic/Latino,F,70,0,0
+566,Hispanic,Not Hispanic/Latino,F,67,0,0
+567,Hispanic,Not Hispanic/Latino,M,52,0,0
+568,White,Not Hispanic/Latino,F,32,1,1
+569,White,Not Hispanic/Latino,F,55,0,0
+570,Black,Hispanic/Latino,M,67,0,0
+571,White,Not Hispanic/Latino,M,46,0,1
+572,Hispanic,Not Hispanic/Latino,M,38,0,1
+573,Black,Not Hispanic/Latino,M,55,0,1
+574,Hispanic,Not Hispanic/Latino,M,44,0,1
+575,Asian,Not Hispanic/Latino,M,48,0,0
+576,Black,Not Hispanic/Latino,M,44,0,0
+577,Asian,Not Hispanic/Latino,M,41,0,1
+578,Black,Not Hispanic/Latino,F,70,0,0
+579,Asian,Hispanic/Latino,F,52,0,1
+580,White,Hispanic/Latino,F,52,0,0
+581,Black,Not Hispanic/Latino,F,65,0,0
+582,Black,Hispanic/Latino,M,45,0,0
+583,White,Hispanic/Latino,F,27,1,1
+584,White,Hispanic/Latino,F,79,0,0
+585,Asian,Hispanic/Latino,F,23,0,0
+586,Black,Not Hispanic/Latino,M,60,0,1
+587,White,Not Hispanic/Latino,F,38,1,0
+588,White,Not Hispanic/Latino,M,34,0,0
+589,White,Hispanic/Latino,M,22,1,0
+590,White,Not Hispanic/Latino,F,83,0,0
+591,Asian,Not Hispanic/Latino,M,50,0,0
+592,White,Not Hispanic/Latino,F,43,0,0
+593,White,Not Hispanic/Latino,F,71,0,0
+594,Black,Not Hispanic/Latino,M,22,0,0
+595,White,Not Hispanic/Latino,M,59,0,0
+596,White,Hispanic/Latino,F,54,1,1
+597,Hispanic,Hispanic/Latino,M,58,0,0
+598,Black,Not Hispanic/Latino,F,28,1,1
+599,Other,Not Hispanic/Latino,M,86,0,1
+600,Black,Not Hispanic/Latino,M,36,0,0

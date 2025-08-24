@@ -1,0 +1,23 @@
+version: 1
+schema_version: "1.0.0"
+assign:
+  site_id: "SITE_X"
+  trial_id: "NCT01234567"
+columns:
+  patient_id: "hash(SALT, row['MRN'])"
+  race: "normalize_race(row['RACE_DESC'])"
+  ethnicity: "normalize_eth(row['ETHNICITY'])"
+  sex: "normalize_sex(row['SEX'])"
+  age: "years_between(row['BIRTH_DATE'], row['MATCH_DATE'])"
+  eligible: "int(row['MATCH_FLAG'])"
+  selected: "int(row['CONTACTED'])"
+  identified: "int(row['IDENTIFIED'])"
+  contacted: "int(row['CONTACTED'])"
+  consented: "int(row['CONSENTED'])"
+  enrolled: "int(row['ENROLLED'])"
+  identified_at: "parse_dt(row['IDENTIFIED_AT'])"
+  contacted_at: "parse_dt(row['CONTACTED_AT'])"
+  match_score: "float(row['SCORE'])"
+  matched_criteria: "row['CRITERIA_JSON']"
+provenance:
+  source_system: "demo_csv"

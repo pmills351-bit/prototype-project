@@ -1,0 +1,19 @@
+[project]
+name = "trial_equity"
+version = "1.0.0"
+description = "Canonical schema + fairness engine for trial recruitment"
+requires-python = ">=3.9"
+dependencies = ["pandas", "pyyaml", "python-dateutil"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Tell setuptools how to find your packages
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trial_equity*"]
+exclude = ["tests*","adapters*"]
+[project.scripts]
+te = "trial_equity.cli:main"
+
