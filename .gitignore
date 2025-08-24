@@ -1,27 +1,38 @@
-﻿# Python
+﻿# Python cache & build artifacts
 __pycache__/
 *.pyc
 *.pyo
-.venv/
-env/
-.conda/
-.pytest_cache/
+*.pyd
+*.pkl
 
-# Notebooks
+# Build / packaging
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+*.env
+
+# Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
-# App outputs & local data
+# VSCode / IDE settings
+.vscode/
+.idea/
+
+# Reports, outputs, temporary files
 out/
-reports/
 runs/
-data/input/*.xlsx
-data/input/*.xls
-*.log
+reports/
 
-# Streamlit
-.streamlit/
+# Data artifacts (keep only what you need)
+data/*.tmp
+data/*.log
 
-# OS/editor
+# OS specific
 .DS_Store
 Thumbs.db
-.vscode/

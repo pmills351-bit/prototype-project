@@ -1,19 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "trial_equity"
 version = "1.0.0"
-description = "Canonical schema + fairness engine for trial recruitment"
-requires-python = ">=3.9"
-dependencies = ["pandas", "pyyaml", "python-dateutil"]
+description = "Trial Equity prototype: CLI + Streamlit + metrics"
+authors = [{ name = "Paul Mills" }]
+readme = "README.md"
+requires-python = ">=3.10"
 
-[build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
+dependencies = [
+  "pandas>=2.2",
+  "pyyaml>=6",
+  "scipy>=1.11",
+  "openpyxl>=3.1",
+  "python-dateutil>=2.8",
+]
 
-# Tell setuptools how to find your packages
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["trial_equity*"]
-exclude = ["tests*","adapters*"]
+[project.optional-dependencies]
+app = [
+  "streamlit>=1.36",
+]
+test = [
+  "pytest>=8",
+]
+
 [project.scripts]
 te = "trial_equity.cli:main"
-
