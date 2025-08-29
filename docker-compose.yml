@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  equienroll:
+    build: .
+    ports:
+      - "8501:8501"
+      - "8000:8000"
+    environment:
+      - APP_ENV=pilot
+      - EXPORT_OUT=/app/out
+    volumes:
+      - ./:/app

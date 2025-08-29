@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/hti1.card.v1.schema.json",
+  "title": "HTI-1 Transparency Card v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "intended_use",
+    "inputs",
+    "logic_summary",
+    "performance",
+    "version"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "hti1.card.v1"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "intended_use": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_window": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      }
+    },
+    "logic_summary": {
+      "type": "string"
+    },
+    "performance": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "irm": {
+      "type": "object"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+site_id:
+  expr: "row.get('SITE_ID') or row.get('site_id') or 'SITE_B'"
+trial_id:
+  expr: "row.get('TRIAL_ID') or row.get('trial_id') or 'TRIAL_BASIC'"
+patient_id:
+  expr: "hash_id((row.get('MRN') or row.get('mrn') or row.name), SALT)"
+age:
+  expr: "years_between(row.get('DOB') or row.get('dob'))"
+race:
+  expr: "normalize_race(row.get('RACE') or row.get('race'))"
+sex:
+  expr: "normalize_sex(row.get('SEX') or row.get('sex'))"
+eligible:
+  expr: "boolify(row.get('ELIGIBLE') or row.get('eligible'))"
+selected:
+  expr: "boolify(row.get('SELECTED') or row.get('selected') or row.get('CONTACTED') or row.get('contacted'))"
+contacted:
+  expr: "boolify(row.get('CONTACTED') or row.get('contacted'))"

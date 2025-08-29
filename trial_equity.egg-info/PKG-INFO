@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: trial_equity
-Version: 1.0.0
-Summary: Canonical schema + fairness engine for trial recruitment
-Requires-Python: >=3.9
-Requires-Dist: pandas
-Requires-Dist: pyyaml
-Requires-Dist: python-dateutil

@@ -1,8 +1,7 @@
-# Robust demo mapping: accepts uppercase/lowercase source columns.
 site_id:
-  expr: "row.get('SITE_ID') or row.get('site_id') or 'SITE_A'"
+  expr: "row.get('SITE_ID') or row.get('site_id') or 'SITE_D'"
 trial_id:
-  expr: "row.get('TRIAL_ID') or row.get('trial_id') or 'TRIAL_DEMO'"
+  expr: "row.get('TRIAL_ID') or row.get('trial_id') or 'TRIAL_DIVERSE'"
 patient_id:
   expr: "hash_id((row.get('MRN') or row.get('mrn') or row.name), SALT)"
 age:
@@ -13,8 +12,6 @@ ethnicity:
   expr: "normalize_eth(row.get('ETHNICITY') or row.get('ethnicity'))"
 sex:
   expr: "normalize_sex(row.get('SEX') or row.get('sex'))"
-
-# Canonical flags
 eligible:
   expr: "boolify(row.get('ELIGIBLE') or row.get('eligible'))"
 selected:
@@ -25,19 +22,3 @@ consented:
   expr: "boolify(row.get('CONSENTED') or row.get('consented'))"
 enrolled:
   expr: "boolify(row.get('ENROLLED') or row.get('enrolled'))"
-
-# Optional metadata/timestamps
-identified:
-  expr: "boolify(row.get('IDENTIFIED') or row.get('identified'))"
-identified_at:
-  expr: "parse_dt(row.get('IDENTIFIED_AT') or row.get('identified_at'))"
-contacted_at:
-  expr: "parse_dt(row.get('CONTACTED_AT') or row.get('contacted_at'))"
-match_score:
-  expr: "row.get('SCORE') or row.get('score')"
-matched_criteria:
-  expr: "row.get('CRITERIA_JSON') or row.get('criteria_json')"
-source_system:
-  expr: "row.get('SOURCE') or row.get('source') or 'CSV'"
-schema_version:
-  value: "v1"

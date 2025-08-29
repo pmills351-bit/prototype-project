@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/dap.v1.schema.json",
+  "title": "DAP Packet v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "study_id",
+    "data_cut",
+    "subgroups",
+    "milestones",
+    "signatures"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "dap.v1"
+    },
+    "study_id": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "data_cut": {
+      "type": "string",
+      "format": "date"
+    },
+    "subgroups": {
+      "type": "array"
+    },
+    "milestones": {
+      "type": "array"
+    },
+    "signatures": {
+      "type": "array"
+    }
+  }
+}

@@ -1,129 +1,175 @@
 # src/metrics.py
 from __future__ import annotations
-from typing import Iterable, Tuple
+from typing import Tuple, Dict, Iterable, Optional
+import math
 import numpy as np
 import pandas as pd
-from math import sqrt
-rng = np.random.default_rng
 
-# -----------------------------
-# Core helpers
-# -----------------------------
-def wilson_ci(k: int, n: int, alpha: float = 0.05) -> Tuple[float, float]:
-    """Wilson score interval for a binomial proportion."""
-    if n <= 0:
-        return (np.nan, np.nan)
-    z = 1.959963984540054 if alpha == 0.05 else _z_from_alpha(alpha)
-    p = k / n
-    denom = 1 + z**2 / n
-    center = (p + z**2 / (2 * n)) / denom
-    half = z * sqrt((p * (1 - p) + z**2 / (4 * n)) / n) / denom
-    lo, hi = center - half, center + half
-    return (max(0.0, lo), min(1.0, hi))
+# ============================================================
+# Core proportion + CI utilities
+# ============================================================
 
 def _z_from_alpha(alpha: float) -> float:
-    # simple approximation for general alpha (not used by default)
-    from math import erf, sqrt
-    # inverse of Phi using approximation (for completeness)
-    p = 1 - alpha/2
-    # Abramowitz-Stegun approx
-    a1,a2,a3 = -39.696830, 220.946098, -275.928510
-    a4,a5,a6 = 138.357751, -30.664798, 2.506628
-    b1,b2,b3 = -54.476098, 161.585836, -155.698979
-    b4,b5,b6 = 66.801311, -13.280681, 0.0
-    c1,c2,c3 = -0.007784894, -0.322396, -2.400758
-    c4,c5,c6 = -2.549732, 4.374664, 2.938163
-    d1,d2,d3 = 0.007784695, 0.322467, 2.445134
-    d4,d5,d6 = 3.754408, 0.0, 0.0
-    plow = 0.02425
-    phigh = 1 - plow
-    if p < plow:
-        q = sqrt(-2* np.log(p))
-        x = (((((c1*q+c2)*q+c3)*q+c4)*q+c5)*q+c6)/((((d1*q+d2)*q+d3)*q+d4)*q+1)
-    elif p <= phigh:
-        q = p - 0.5
-        r = q*q
-        x = (((((a1*r+a2)*r+a3)*r+a4)*r+a5)*r+a6)*q/(((((b1*r+b2)*r+b3)*r+b4)*r+b5)*r+1)
-    else:
-        q = sqrt(-2* np.log(1-p))
-        x = -(((((c1*q+c2)*q+c3)*q+c4)*q+c5)*q+c6)/((((d1*q+d2)*q+d3)*q+d4)*q+1)
-    return float(x)
+    """Two-sided z for (1 - alpha) CI. Falls back to 1.95996 if SciPy not available."""
+    if not (0.0 < alpha < 1.0):
+        alpha = 0.05
+    try:
+        from scipy.stats import norm  # type: ignore
+        return float(norm.ppf(1 - alpha / 2.0))
+    except Exception:
+        return 1.959963984540054  # ≈ 95% CI
 
-def rate_and_ci(y: Iterable[float], alpha: float = 0.05) -> Tuple[float, Tuple[float, float]]:
-    y = pd.Series(y).dropna().astype(float)
-    n = int(y.shape[0])
-    k = int(y.sum())
-    if n == 0:
-        return (np.nan, (np.nan, np.nan))
-    lo, hi = wilson_ci(k, n, alpha=alpha)
-    return (k / n, (lo, hi))
 
-# -----------------------------
-# Bootstrap CIs for ratios/diffs
-# -----------------------------
-def _safe_div(a: np.ndarray, b: np.ndarray, eps: float = 1e-9) -> np.ndarray:
-    return a / np.clip(b, eps, None)
+def rate_and_ci(successes: int, n: int, alpha: float = 0.05) -> Tuple[float, float, float]:
+    """
+    Wilson score interval for a binomial proportion.
+    Returns (rate, lo, hi) clipped to [0,1]. If n<=0 -> (nan, nan, nan).
+    """
+    if n is None or n <= 0:
+        return (float("nan"), float("nan"), float("nan"))
 
-def _sim_p(n: int, p: float, B: int, rng_: np.random.Generator) -> np.ndarray:
-    if not np.isfinite(p) or n <= 0:
-        return np.full(B, np.nan, dtype=float)
-    k = rng_.binomial(n, min(max(p, 0.0), 1.0), size=B)
-    return k / np.maximum(n, 1)
+    p = successes / n
+    z = _z_from_alpha(alpha)
+    z2 = z * z
 
-def disparity_bootstrap_ci(p_g: float, p_ref: float, n_g: int, n_ref: int, B: int = 2000, seed: int = 42, alpha: float = 0.05) -> Tuple[float, Tuple[float, float]]:
-    """Relative risk (ratio) via parametric bootstrap."""
-    rr = p_g / p_ref if (np.isfinite(p_g) and np.isfinite(p_ref) and p_ref > 0) else np.nan
-    r = np.random.default_rng(seed)
-    ps_g = _sim_p(n_g, p_g, B, r)
-    ps_r = _sim_p(n_ref, p_ref, B, r)
-    sims = _safe_div(ps_g, ps_r)
-    lo, hi = np.nanpercentile(sims, [100*alpha/2, 100*(1-alpha/2)])
-    return rr, (float(lo), float(hi))
+    denom = 1.0 + z2 / n
+    center = (p + z2 / (2.0 * n)) / denom
+    half = (z / denom) * math.sqrt((p * (1.0 - p) / n) + (z2 / (4.0 * n * n)))
+    lo = max(0.0, center - half)
+    hi = min(1.0, center + half)
+    return (p, lo, hi)
 
-def risk_difference_bootstrap_ci(p_g: float, p_ref: float, n_g: int, n_ref: int, B: int = 2000, seed: int = 42, alpha: float = 0.05) -> Tuple[float, Tuple[float, float]]:
-    """Risk difference (p_g - p_ref) via parametric bootstrap."""
-    rd = p_g - p_ref if (np.isfinite(p_g) and np.isfinite(p_ref)) else np.nan
-    r = np.random.default_rng(seed + 13)
-    ps_g = _sim_p(n_g, p_g, B, r)
-    ps_r = _sim_p(n_ref, p_ref, B, r)
-    sims = ps_g - ps_r
-    lo, hi = np.nanpercentile(sims, [100*alpha/2, 100*(1-alpha/2)])
-    return rd, (float(lo), float(hi))
 
-def relative_risk_bootstrap_ci(p_g: float, p_ref: float, n_g: int, n_ref: int, B: int = 2000, seed: int = 42, alpha: float = 0.05) -> Tuple[float, Tuple[float, float]]:
-    """Alias of disparity (relative risk)."""
-    return disparity_bootstrap_ci(p_g, p_ref, n_g, n_ref, B=B, seed=seed, alpha=alpha)
+# Back-compat aliases some codebases expect
+wilson_rate_ci = rate_and_ci
+selection_rate_ci = rate_and_ci
 
-def parity_difference_bootstrap_ci(p_g: float, p_ref: float, n_g: int, n_ref: int, B: int = 2000, seed: int = 42, alpha: float = 0.05) -> Tuple[float, Tuple[float, float]]:
-    """Parity difference defined as (p_ref - p_g)."""
-    rd, (lo, hi) = risk_difference_bootstrap_ci(p_g, p_ref, n_g, n_ref, B=B, seed=seed, alpha=alpha)
-    pdiff = -rd
-    return pdiff, (-hi, -lo)
 
-# -----------------------------
-# Calibration helpers
-# -----------------------------
-def brier_score(y_true: Iterable[float], p_pred: Iterable[float]) -> float:
+# ============================================================
+# Disparity & bootstrap utilities
+# ============================================================
+
+def disparity_ratio(rate: float, ref_rate: float) -> float:
+    """rate / ref_rate; returns nan if ref_rate<=0."""
+    if ref_rate is None or ref_rate <= 0:
+        return float("nan")
+    return float(rate) / float(ref_rate)
+
+
+def risk_difference(rate: float, ref_rate: float) -> float:
+    """group - ref (in absolute points)."""
+    if any(pd.isna([rate, ref_rate])):
+        return float("nan")
+    return float(rate) - float(ref_rate)
+
+
+def parity_difference(ref_rate: float, rate: float) -> float:
+    """ref - group (in absolute points)."""
+    if any(pd.isna([rate, ref_rate])):
+        return float("nan")
+    return float(ref_rate) - float(rate)
+
+
+def _binom_sample(successes: int, n: int, size: int, rng: np.random.Generator) -> np.ndarray:
+    """Sample counts ~ Binomial(n, p̂) for bootstrap."""
+    if n <= 0:
+        return np.full(size, np.nan)
+    p = max(0.0, min(1.0, successes / n))
+    return rng.binomial(n=n, p=p, size=size)
+
+
+def bootstrap_disparity_ci(
+    succ: int,
+    n: int,
+    ref_succ: int,
+    ref_n: int,
+    B: int = 1000,
+    seed: int = 123,
+    alpha: float = 0.05,
+) -> Tuple[float, float]:
+    """
+    Non-parametric-esque (parametric binomial) bootstrap for disparity ratio.
+    Returns (lo, hi) for group_rate / ref_rate using Wilson rate per draw to reduce 0/0 artifacts.
+    """
+    rng = np.random.default_rng(seed)
+    if n <= 0 or ref_n <= 0:
+        return (float("nan"), float("nan"))
+
+    draws_g = _binom_sample(succ, n, B, rng)
+    draws_r = _binom_sample(ref_succ, ref_n, B, rng)
+
+    # Convert to rates with a small stabilizer via Wilson center (better small-n behavior)
+    z = _z_from_alpha(alpha)
+    z2 = z * z
+
+    def _rate_from_count(k, N):
+        if N <= 0:
+            return np.nan
+        p = k / N
+        denom = 1.0 + z2 / N
+        center = (p + z2 / (2.0 * N)) / denom
+        return center
+
+    rates_g = np.array([_rate_from_count(int(k), int(n)) for k in draws_g], dtype=float)
+    rates_r = np.array([_rate_from_count(int(k), int(ref_n)) for k in draws_r], dtype=float)
+
+    with np.errstate(divide="ignore", invalid="ignore"):
+        ratios = rates_g / rates_r
+    ratios = ratios[np.isfinite(ratios)]
+    if ratios.size == 0:
+        return (float("nan"), float("nan"))
+
+    lo = float(np.quantile(ratios, alpha / 2.0))
+    hi = float(np.quantile(ratios, 1 - alpha / 2.0))
+    return (lo, hi)
+
+
+# ============================================================
+# Calibration metrics (optional in UI)
+# ============================================================
+
+def brier_score(y_true: Iterable[float], y_prob: Iterable[float]) -> float:
+    """Mean squared error between true labels (0/1) and predicted probabilities [0,1]."""
     y = np.asarray(list(y_true), dtype=float)
-    p = np.asarray(list(p_pred), dtype=float)
+    p = np.asarray(list(y_prob), dtype=float)
     if y.size == 0 or p.size == 0 or y.size != p.size:
-        return np.nan
-    if np.any(~np.isfinite(y)) or np.any(~np.isfinite(p)):
-        return np.nan
+        return float("nan")
+    # clip probs
+    p = np.clip(p, 0.0, 1.0)
     return float(np.mean((p - y) ** 2))
 
-def reliability_table(y_true: Iterable[float], p_pred: Iterable[float], bins: int = 10, strategy: str = "quantile") -> pd.DataFrame:
-    y = pd.Series(y_true, dtype=float)
-    p = pd.Series(p_pred, dtype=float)
-    ok = y.notna() & p.notna()
-    y = y[ok]; p = p[ok]
-    if y.empty:
-        return pd.DataFrame(columns=["bin", "n", "p_mean", "y_rate"])
-    if strategy == "quantile":
-        q = pd.qcut(p, q=bins, duplicates="drop")
-    else:
-        q = pd.cut(p, bins=bins)
-    g = pd.DataFrame({"y": y, "p": p, "bin": q}).groupby("bin", dropna=False)
-    out = g.agg(n=("y", "size"), p_mean=("p", "mean"), y_rate=("y", "mean")).reset_index()
-    return out
 
+def reliability_table(
+    y_true: Iterable[float],
+    y_prob: Iterable[float],
+    bins: int = 10,
+    strategy: str = "quantile",
+) -> pd.DataFrame:
+    """
+    Returns a table with columns: [bin, p_mean, y_rate, n].
+    strategy ∈ {"uniform","quantile"}; quantile gives balanced counts per bin.
+    """
+    y = pd.Series(list(y_true), dtype=float)
+    p = pd.Series(list(y_prob), dtype=float).clip(0.0, 1.0)
+
+    if len(y) == 0 or len(p) == 0 or len(y) != len(p):
+        return pd.DataFrame(columns=["bin", "p_mean", "y_rate", "n"])
+
+    if strategy == "uniform":
+        edges = np.linspace(0, 1, bins + 1)
+        binned = pd.cut(p, bins=edges, include_lowest=True, duplicates="drop")
+    else:  # quantile
+        try:
+            binned = pd.qcut(p, q=bins, duplicates="drop")
+        except ValueError:
+            # Not enough unique probabilities
+            return pd.DataFrame(columns=["bin", "p_mean", "y_rate", "n"])
+
+    df = pd.DataFrame({"bin": binned, "p": p, "y": y})
+    agg = (
+        df.dropna(subset=["bin"])
+          .groupby("bin", observed=True)
+          .agg(p_mean=("p", "mean"), y_rate=("y", "mean"), n=("y", "size"))
+          .reset_index()
+    )
+    return agg
