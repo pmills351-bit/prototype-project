@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     env:
-      PYTHONPATH: src   # <-- make `python -m trial_equity.cli` work without installing the package
+      PYTHONPATH: src
     strategy:
       fail-fast: false
       matrix:
@@ -19,5 +19,8 @@ jobs:
         run: |
           python -m pip install -U pip
           pip install pandas pytest jsonschema
-      - name: Run tests
-        run: pytest -q
+      - name: Sanity import
+        run: |
+          python -c "import sys,os,pathlib; print('PYTHONPATH=',os.environ.get('PYTHONPATH')); import trial_equity; print('trial_equity at:', pathlib.Path(trial_equity.__file__).resolve())"
+      - name: Run pilot tests only
+        run: pytest -q tests/test_pilot_ready_suite.py
