@@ -1,0 +1,7 @@
+{
+  "signers": [
+    {"role": "Sponsor Rep",   "name": "Jane Smith", "purpose": "approve", "time": null},
+    {"role": "Site Lead CRC", "name": "Alex Doe",   "purpose": "review",  "time": null},
+    {"role": "EquiEnroll",    "name": "System",     "purpose": "generate","time": null}
+  ]
+}
