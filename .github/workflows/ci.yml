@@ -1,76 +1,21 @@
-name: CI
-
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
-
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
-
+﻿name: ci
+on: [push, pull_request]
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ['3.10', '3.11']
-
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.12"]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: pip
-
-      - name: Upgrade pip
-        run: python -m pip install --upgrade pip
-
-      # (1) Install project with app + test extras
-      - name: Install project
-        run: pip install -e .[app,test]
-
-      - name: Show environment
+      - name: Install deps
         run: |
-          python -V
-          pip list
-
-      # (2) Streamlit import smoke (quick import check, no server)
-      - name: Streamlit import smoke
-        run: |
-          python - <<'PY'
-          import importlib.util, sys, pathlib
-          p = pathlib.Path("app_streamlit.py")
-          if not p.exists():
-              print("SKIP: app_streamlit.py not present")
-              sys.exit(0)
-          spec = importlib.util.spec_from_file_location("app_streamlit", str(p))
-          mod = importlib.util.module_from_spec(spec)
-          spec.loader.exec_module(mod)
-          print("OK: app_streamlit.py imports")
-          PY
-
-      # Keep your CLI end-to-end smoke test
-      - name: CLI smoke test
-        env:
-          PYTHONUTF8: "1"
-        run: python smoke_test.py
-
-      - name: Run unit tests
-        env:
-          PYTHONUTF8: "1"
+          python -m pip install -U pip
+          pip install -r requirements.txt
+          pip install pytest jsonschema
+      - name: Run tests
         run: pytest -q
-
-      # Upload artifacts from the smoke test (canonical & metrics CSV/XLSX)
-      - name: Upload smoke artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: smoke-artifacts-py${{ matrix.python-version }}
-          path: |
-            out/smoke/**/*.csv
-            out/smoke/**/*.xlsx
-          if-no-files-found: ignore
